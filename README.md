@@ -30,3 +30,8 @@ Django Project for creating wishing friend.
 *Audio File Sending*
 
 ![image](https://user-images.githubusercontent.com/91014156/192619428-4426fd74-ff8d-49ae-9ff8-36858604521b.png)
+
+
+### Responsive Code
+
+![image](https://user-images.githubusercontent.com/91014156/192619821-8f392144-a1ac-4de9-83a1-37a13f5bd2ea.png)
