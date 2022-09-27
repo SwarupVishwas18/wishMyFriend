@@ -5,7 +5,7 @@ Django Project for creating wishing friend.
 
 ### Clone Repository
 
-> https://github.com/SwarupVishwas18/wishMyFriend.git
+> git clone https://github.com/SwarupVishwas18/wishMyFriend.git
 
 ### Install Repositories
 
