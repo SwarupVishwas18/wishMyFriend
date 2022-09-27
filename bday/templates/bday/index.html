@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WishMyFriend</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      body{
+        background-color: #0d1017;
+        color: #ABB2BF;
+      }
+      .myNav{
+        background-color: #161b21 !important;
+      }
+  main{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .rad-check{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark myNav">
+        <a class="navbar-brand" href="#">WishMyFriend</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/SwarupVishwas18/wishMyFriend">View Src Code<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/SwarupVishwas18">Github Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/swarup.vishwas/">Instagram Account</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+   
+    <main>
+       
+        <h1 class="logo">
+          🎉 Wish My Friend 🎉
+        </h1>
+        <form action="" autocomplete="off" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter The Name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <select class="form-control" id="cat"  onchange="changePlace()" name="cat">
+                  <option value="bd">Birthday</option>
+                  <option value="lu">Wish Luck</option>
+                  <option value="co">Congratulations</option>
+                  <option value="an">Anniversary</option>
+                  <option value="cr">Create Ringtone</option>
+                  <option value="cu">Custom</option>
+                </select>
+              </div>
+            </div>
+            <div class="rad-check">
+              <div class="form-check ">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="fast" id="flexRadioDefault1" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Fast Mode
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" value="slow" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Slow Mode
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="form-control btn btn-primary mb-2">Create Wish</button>
+          </form>
+
+          {% if isPost %}
+          <h3>
+            Your Audio File..
+          </h3>
+          <audio controls>
+            
+              <source src="{% static 'speech.mp3' %}" autoplay="on" type="audio/mpeg">
+              Your browser does not support audio
+          </audio>
+      {% endif %}
+    </main>
+
+   
+        <script>
+          function changePlace(){
+            var cat = document.getElementById('cat')
+            var name = document.getElementById('name')
+
+            if(cat.selectedIndex == 5){
+            name.placeholder = 'Enter The Text You Want'
+            console.log("Hello")
+            }
+            else{
+              name.placeholder = 'Enter The Name'
+            console.log("Hello")
+            }
+          } 
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
